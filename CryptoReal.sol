@@ -11,9 +11,9 @@ contract CryptoReal is ERC20, Ownable {
         _mint(msg.sender, 1000);
     }
 
-    // Owner gets commission of each transaction
+    // Owner gets a fee of each transaction
     function transfer(address recipient_, uint256 amount_) public override returns (bool) {
-        uint256 fee = (amount_ * 1) / 1000; // 0.1% commission
+        uint256 fee = (amount_ * 1) / 1000; // 0.1% fee
         uint256 amountAfterFee = amount_ - fee;
 
         _transfer(msg.sender, recipient_, amountAfterFee);
